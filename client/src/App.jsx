@@ -1,12 +1,27 @@
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import './App.css'
+import Home from './Pages/Home'
+import About from './Pages/About'
+import Dashboard from './Pages/Dashboard'
+import SignIn from './Pages/SignIn'
+import SignUp from './Pages/SignUp'
 
 function App() {
 
 
   return (
-    <div className='bg-red-200'>
-   <h1>Hello</h1>
-    </div>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home/>} />
+      <Route path='/about' element={<About/>}/>
+      <Route path="/dashboard" element={<Dashboard/>}/>
+      <Route path="/home" element={<Home/>}/>
+      <Route path='/sign-in' element={<SignIn/>}/>
+      <Route path='/sign-up' element={<SignUp/>}/>
+
+
+    </Routes>
+    </BrowserRouter>
   )
 }
 
