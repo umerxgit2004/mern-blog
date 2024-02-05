@@ -47,6 +47,7 @@ export const signin = async (req, res, next) => {
         { id: validUser._id, },
         process.env.JWT_SECRET
       );
+      const{password:pass,...rest} = validUser._doc//sperate pass
   
     
   
@@ -55,7 +56,7 @@ export const signin = async (req, res, next) => {
         .cookie('access_token', token, {
           httpOnly: true,
         })
-        .json(validUser);
+        .json(rest);
     } catch (error) {
       next(error);
     }
