@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Button, Label, TextInput, Alert, Spinner} from 'flowbite-react'
 import {useDispatch, useSelector} from 'react-redux'
-import { signInStart, signInAccess , signInFailure } from '../redux/user/userSlice'
+import { signInStart, signInAccess , signInFailure } from '../redux/user/userSlice.js'
+import OAuth from '../components/OAuth.jsx'
 
 function SignIn() {
   const [formData,setFormData] = useState({})
-  const {loading, error:errorMessage} = useSelector(state => state.user)
+  const {loading, error:errorMessage} = useSelector((state) => state.reducer.user)
   const dispatch = useDispatch()
 
   const navigate= useNavigate()
@@ -91,6 +92,7 @@ const handleSubmit = async (e) =>{
             ) : "Sign In"
            }
           </Button>
+          <OAuth/>
         </form>
 
         

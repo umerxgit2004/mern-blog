@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Button, Label, TextInput, Alert, Spinner} from 'flowbite-react'
+import OAuth from '../components/OAuth'
 
 function SignUp() {
   const [formData,setFormData] = useState({})
@@ -97,6 +98,7 @@ const handleSubmit = async (e) =>{
             ) : "Sign Up"
            }
           </Button>
+          <OAuth/>
         </form>
 
         
