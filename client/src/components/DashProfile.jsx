@@ -42,13 +42,14 @@ function DashProfile() {
         setImageFileUploadProgress(progress.toFixed(0));
       },
       (error) => {
-        setImageFileUploadError('Could not Upload Image (file must be less than 2mb)')
+        setImageFileUploadError('Could not Upload Image (file must be less than 2mb)',error)
         setImageFileUploadProgress(null);
         setImageFile(null)
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           setImageFileUrl(downloadURL);
+          setImageFileUploadProgress(null);
         });
       }
     );
